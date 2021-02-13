@@ -1,0 +1,5 @@
+heroku-postgres Url:
+postgresql-perpendicular-76070
+
+Heroku password:
+Ég
