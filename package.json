@@ -1,0 +1,35 @@
+{
+  "name": "Vef2_Verkefni_2",
+  "version": "1.0.0",
+  "description": "\"Vefforitun 2, Verkefni 2: Gagnasafn fyrir form\"",
+  "main": ".eslintrc.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "eslint-config-airbnb": "^18.2.1",
+    "express": "^4.17.1",
+    "pg": "^8.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-plugin-import": "^2.22.1",
+    "stylelint": "^13.10.0",
+    "stylelint-config-standard": "^20.0.0"
+  },
+  "scripts": {
+    "test": "test",
+    "start": "node ./src/app.js",
+    "lint:eslint": "eslint ./src/*.js",
+    "lint:stylelint": "stylelint styles.css --syntax scss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ves14/Vef2_Verkefni_2.git"
+  },
+  "author": "ves14",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ves14/Vef2_Verkefni_2/issues"
+  },
+  "homepage": "https://github.com/ves14/Vef2_Verkefni_2#readme"
+}
