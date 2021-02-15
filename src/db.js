@@ -1,15 +1,22 @@
-import pg from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-const {
+export const {
   DATABASE_URL: connectionString,
+  DEV: dev = false,
 } = process.env;
 
-if (!connectionString) {
-  console.error('Vantar DATABASE_URL');
-  process.exit(1);
+console.log(connectionString);
+
+const connectionOptions = { connectionString };
+
+if (!dev) {
+  connectionOptions.ssl = {
+    rejectUnauthorized: false,
+  };
 }
 
-// TODO gagnagrunnstengingar
+
+
+

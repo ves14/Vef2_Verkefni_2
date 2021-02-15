@@ -1,28 +1,32 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
 import { router } from './registration.js';
 
 dotenv.config();
 
-const {
-  PORT: port = 3001,
-} = process.env;
-
 const app = express();
 
-// TODO setja upp rest af virkni!
-//Ná í index.ejs
-app.set('view engine','ejs')
-app.get('/', (req, res) => {
-    res.render('index');
-    
-})
+app.use(express.urlencoded({ extended: true }));
 
 app.use(router);
 
-// Verðum að setja bara *port* svo virki á heroku
+function errorHandler(err,req, res, next) { // eslint-disable-line
+  console.error(err); // eslint-disable-line
+  res.send('error');
+  next()
+}
+
+app.use(errorHandler);
+
+app.set('view engine', 'ejs');
+app.get('/', (req, res) => {
+  res.render('index');
+  
+})
+const {
+  PORT: port = 3000,
+} = process.env;
+
 app.listen(port, () => {
-  console.info(`Server running at http://localhost:${port}/`);
+  console.info(`App running on http://localhost:${port}`); // eslint-disable-line
 });

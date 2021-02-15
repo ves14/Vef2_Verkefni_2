@@ -20,16 +20,20 @@
         <div class=row>
             <input class="col col-1" type="checkbox" name="ekkiNafn" >
             <p class="col col-5">Ekki birta nafn á lista</p>
-        </div>
+        </div>7
         <div class="row">
             <button class=" col col-2 " >Skrifa Undir</button>
         </div>
       </div>
 
-      <div>
-          <table>
-
-          </table>
-      </div>
-        
+      <% if(regInfo.errors.length !== 0) {%>
+        <div class="container ">
+          <p class="row "><strong>Undirskriftarvillur</strong></p>
+            <% for(let i = 0; i < regInfo.allErrors.length; i++) { %>
+              <p><%= regInfo.allErrors[i].msg + "."%></p>
+            <% } %>
+        </div>
+      <% } %>
+     
+      <%- include('db') -%>   
       <%- include('footer') -%>
